@@ -4,6 +4,8 @@ import {ArticleService} from "../../../Services/article.service";
 import {Article} from "../../../Entity/Article";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Offres} from "../../../Entity/Offres";
+import {map} from "rxjs";
+import {ImageService} from "../../../Services/image.service";
 
 @Component({
   selector: 'app-page1',
@@ -17,7 +19,8 @@ export class Page1Component implements OnInit {
   public checked = false;
   constructor(private route: ActivatedRoute,
               private articleService: ArticleService,
-              private router:Router) {
+              private router:Router,
+              private imageService:ImageService) {
   }
 
   articles:Article[]=[];
@@ -60,7 +63,10 @@ export class Page1Component implements OnInit {
     );
   }
   public getAllArticle() {
-    this.articleService.getAllArticle().subscribe(
+    this.articleService.getAllArticle()
+      .pipe(
+        map((x: any[], i) => x.map((article: Article) => this.imageService.createImage(article)))
+      ).subscribe(
       (response: Article[]) => {
         this.articles =response;
       },

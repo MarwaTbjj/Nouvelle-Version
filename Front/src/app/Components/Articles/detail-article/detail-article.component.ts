@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ArticleService} from "../../../Services/article.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import * as Console from "console";
+import {map} from "rxjs";
+import {ImageService} from "../../../Services/image.service";
 
 
 @Component({
@@ -14,7 +16,8 @@ import * as Console from "console";
 export class DetailArticleComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              private articleService: ArticleService) {
+              private articleService: ArticleService,
+              private imageService:ImageService) {
   }
 
   public article: Article = {
@@ -46,7 +49,9 @@ export class DetailArticleComponent implements OnInit {
   }
 
     public getArticle(): void {
-    this.articleService.findArticleById(this.idA).subscribe(
+    this.articleService.findArticleById(this.idA)
+      .pipe(map(p => this.imageService.createImage(p)))
+      .subscribe(
       (responce: Article) => {
         this.article = responce;
       },

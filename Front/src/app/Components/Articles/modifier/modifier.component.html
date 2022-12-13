@@ -6,12 +6,13 @@
 
     <mat-form-field appearance="outline" style="width: 340px">
       <mat-label>Titre article</mat-label>
-      <input matInput placeholder="titre article"  name=" titre" [(ngModel)]="article.titre">
+      <input matInput placeholder="titre"  name="titre" [(ngModel)]="article.titre">
 
     </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 690px">
+    <mat-form-field appearance="outline" style="margin-left: 10px" >
       <mat-label>Description</mat-label>
-      <textarea type="date" matInput placeholder="description" name="description" [(ngModel)]="article.description"></textarea>
+      <textarea type="date" matInput placeholder="description" name="description"
+                [(ngModel)]="article.description"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline" style="width: 340px">
@@ -41,7 +42,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" style="width: 340px">
       <mat-label>Sous-Titre4</mat-label>
-      <textarea matInput placeholder="description-titre4"  name="sous_titre" [(ngModel)]="article.sous_titre4"></textarea>
+      <textarea matInput placeholder="description-titre4"  name="sous_titre4" [(ngModel)]="article.sous_titre4"></textarea>
     </mat-form-field>
     <mat-form-field appearance="outline" style="margin-left: 10px;width: 340px">
       <mat-label>Description-Titre4</mat-label>
@@ -55,6 +56,7 @@
       <mat-label>Description-Titre5</mat-label>
       <textarea matInput placeholder="description-titre5" name="description5" [(ngModel)]="article.description5"></textarea>
     </mat-form-field>
+
     <input type="number" style="display: none" name="id" matInput ngModel="{{article.id}}">
     <div style="width: 200px;margin-top: 20px">
       <button style="margin-left: 10px" mat-flat-button color="primary" [disabled]="editForm.invalid" (click)="updateArticle(editForm.value)"  type="submit">Confirmer</button>

@@ -10,6 +10,8 @@ import {SupprimerArticleComponent} from "../supprimer-article/supprimer-article.
 import {ModifierComponent} from "../modifier/modifier.component";
 import {DatePipe} from "@angular/common";
 import {Recruteur} from "../../../Entity/Recruteur";
+import {map} from "rxjs";
+import {ImageService} from "../../../Services/image.service";
 
 
 @Component({
@@ -48,7 +50,8 @@ export class AjoutArticleComponent implements OnInit {
   constructor(private articleService:ArticleService,
               private  router:Router,
               public dialog: MatDialog,
-              private datePipe: DatePipe
+              private datePipe: DatePipe,
+              private imageService: ImageService
               ) {
     this.date = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
   }
@@ -63,7 +66,7 @@ export class AjoutArticleComponent implements OnInit {
     const articleFormData = this.prepareFormData(this.article)
     this.articleService.addArticle(articleFormData).subscribe(
       (response: Article) => {
-        window.location.reload()
+        window.location.reload();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -126,7 +129,10 @@ export class AjoutArticleComponent implements OnInit {
   }
 
   public getAllArticle() {
-    this.articleService.getAllArticle().subscribe(
+    this.articleService.getAllArticle()
+      .pipe(
+        map((x: any[], i) => x.map((article: Article) => this.imageService.createImage(article)))
+      ).subscribe(
       (response: Article[]) => {
         this.articles =response;
       },
