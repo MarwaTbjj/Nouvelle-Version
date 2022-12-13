@@ -1,0 +1,90 @@
+
+    <!--<div class="col-lg-4" >
+
+      <div class="card mb-4">
+        <a href="#!"><img class="card-img-top" src="https://assets.thehansindia.com/h-upload/2022/10/02/1314683-kill.webp" alt="..."  style="height: 230px"></a>
+        <div class="card-body">
+          <div class="small text-muted">Juin 2, 2021</div>
+          <h2 class="card-title">Soft skills : la valeur ajoutée pour tout étudiant</h2>
+          <p class="card-text">Une enquête menée en 2019 révèle que désormais il ne suffit plus de tout miser sur son diplôme pour réussir sa carrière professionnelle.
+            1er résultat de l’enquête : 70 % des cadres estiment que </p>
+          <a class="btn btn-primary" (click)="open2()">Lire la suite →</a>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-4" >
+
+      <div class="card mb-4">
+        <a href="#!"><img class="card-img-top"
+                          src="https://www.koreva-formation.com/images/blog/guide-pour-un-cv-parfait.jpg" alt="..."  style="height: 230px"></a>
+        <div class="card-body">
+          <div class="small text-muted">Mars 2, 2022</div>
+          <h2 class="card-title">CV simple et concis : voici nos conseils !</h2>
+          <p class="card-text">Un CV bien rédigé est déjà une partie de gagnée… ou presque ! Il est important de
+            vous appliquer et savoir quoi mentionner pour faire la différence avec les autres candidats.</p>
+          <a class="btn btn-primary" (click)="open3()">Lire la suite →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4" >
+
+    <div class="card mb-4">
+      <a href="#!"><img class="card-img-top"
+                        src="https://www.koreva-formation.com/images/blog/guide-pour-un-cv-parfait.jpg" alt="..."  style="height: 230px"></a>
+      <div class="card-body">
+        <div class="small text-muted">Mars 2, 2022</div>
+        <h2 class="card-title">CV simple et concis : voici nos conseils !</h2>
+        <p class="card-text">Un CV bien rédigé est déjà une partie de gagnée… ou presque ! Il est important de
+          vous appliquer et savoir quoi mentionner pour faire la différence avec les autres candidats.</p>
+        <a class="btn btn-primary" (click)="open3()">Lire la suite →</a>
+      </div>
+    </div>
+  </div>-->
+
+ <!-- <nav aria-label="Pagination" >
+    <hr class="my-0" />
+    <ul class="pagination justify-content-center my-10">
+      <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
+                                        aria-disabled="true">page 1 sur 2</a></li>
+      <li class="page-item active" aria-current="page"><a class="page-link" >1</a></li>
+      <li class="page-item"><a class="page-link"  routerLink="/page2">2</a></li>
+
+    </ul>
+  </nav>
+
+
+</div>
+</div>-->
+
+
+<div class="page-content page-container" id="page-content" style="margin-top: 130px;margin-left: 120px">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-sm-12">
+        <!-- Draggable default card start -->
+        <div class="card">
+          <div class="card-header">
+            <h1 style="text-align: center;color: #3e50b0">Liste des Articles</h1>
+          </div>
+          <div class="card-block" >
+            <div class="row" id="sortable" >
+              <div class="col-md-3" *ngFor="let article of articles">
+                <div class="card-sub"> <img class="card-img-top img-fluid" src="https://www.koreva-formation.com/images/blog/guide-pour-un-cv-parfait.jpg" alt="Card image cap">
+                  <div class="card-block">
+                    <h4 class="card-title" style="text-align: center;font-weight: bold">{{article.titre}}</h4>
+                    <p class="card-text" style="text-align: center">{{article.description}}</p>
+                    <a class="btn btn-primary"  style="margin-left: 50px" (click)="getDetails(article.id)">Lire la suite →</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
